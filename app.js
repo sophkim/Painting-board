@@ -1,3 +1,4 @@
+//html 태그 연결
 const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext("2d");
 const colors = document.getElementsByClassName("jsColor");
@@ -5,12 +6,14 @@ const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
 const saveBtn = document.getElementById("jsSave");
 
+//자주쓰는 변수 선언
 const INITIAL_COLOR = "#2c2c2c";
 const CANVAS_SIZE = 700;
 
 canvas.width = CANVAS_SIZE;
 canvas.height = CANVAS_SIZE;
 
+//초기화
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 ctx.strokeStyle = INITIAL_COLOR;
@@ -28,6 +31,7 @@ function startPainting() {
   painting = true;
 }
 
+//마우스 움직일 때 라인 그리는 함수
 function onMouseMove(event) {
   const x = event.offsetX;
   const y = event.offsetY;
@@ -40,6 +44,7 @@ function onMouseMove(event) {
   }
 }
 
+//색상 설정 함수
 function handleColorClick(event) {
   const color = event.target.style.backgroundColor;
   ctx.strokeStyle = color;
@@ -79,6 +84,7 @@ function handleSaveClick() {
   link.click();
 }
 
+//이벤트 리스너
 if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
   canvas.addEventListener("mousedown", startPainting);
